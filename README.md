@@ -129,3 +129,18 @@ LIMIT 10;
 ```
 
 ![p3](./p3/p3.png)
+
+## Побудуйте колонку різниці в роках.
+
+```sql
+USE pandemic;
+
+SELECT
+    year,
+	MAKEDATE(year, 1) AS first_day_date,
+    CURDATE() AS `current_date`,
+    TIMESTAMPDIFF(YEAR, MAKEDATE(year, 1), CURDATE()) AS difference
+FROM infectious_cases_updated;
+```
+
+![p4](./p4/p4.png)
